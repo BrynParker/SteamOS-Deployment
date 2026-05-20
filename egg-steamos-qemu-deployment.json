@@ -1,0 +1,82 @@
+{
+      "name": "RAM Size",
+      "description": "RAM assigned to the QEMU VM, for example 8G.",
+      "env_variable": "RAM_SIZE",
+      "default_value": "8G",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:16",
+      "field_type": "text"
+    },
+    {
+      "name": "CPU Cores",
+      "description": "CPU cores assigned to QEMU.",
+      "env_variable": "CPU_CORES",
+      "default_value": "4",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1,32",
+      "field_type": "text"
+    },
+    {
+      "name": "Web Port",
+      "description": "noVNC web port. Set this to the server's primary allocation if SERVER_PORT is not being passed correctly.",
+      "env_variable": "WEB_PORT",
+      "default_value": "8006",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1,65535",
+      "field_type": "text"
+    },
+    {
+      "name": "Disk Bus",
+      "description": "virtio is faster; sata may be more compatible. Valid: virtio, sata.",
+      "env_variable": "DISK_BUS",
+      "default_value": "virtio",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:virtio,sata",
+      "field_type": "text"
+    },
+    {
+      "name": "SSH Host Port",
+      "description": "Optional user-mode networking forward from host port to guest SSH port 22. Use an allocated port if exposing SSH.",
+      "env_variable": "SSH_HOST_PORT",
+      "default_value": "2222",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1,65535",
+      "field_type": "text"
+    },
+    {
+      "name": "Force Recreate Disk",
+      "description": "Set true to delete and recreate the VM disk on next start. DANGEROUS: this wipes the installed VM disk.",
+      "env_variable": "FORCE_RECREATE_DISK",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "Reset OVMF",
+      "description": "Set true to reset persistent UEFI vars on next start.",
+      "env_variable": "RESET_OVMF",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false",
+      "field_type": "text"
+    },
+    {
+      "name": "Extra QEMU Arguments",
+      "description": "Optional extra QEMU flags. Leave blank unless troubleshooting.",
+      "env_variable": "QEMU_ARGUMENTS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:512",
+      "field_type": "text"
+    }
+  ]
+}
